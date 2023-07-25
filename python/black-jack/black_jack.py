@@ -16,7 +16,12 @@ def value_of_card(card):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if card is 'J' or card is 'K' or card is 'Q':
+        return 10
+    elif card is 'A':
+        return 1
+    else:
+        return int(card)
 
 
 def higher_card(card_one, card_two):
@@ -30,7 +35,12 @@ def higher_card(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if value_of_card(card_one) == value_of_card(card_two):
+        return card_one, card_two
+    elif value_of_card(card_one) > value_of_card(card_two):
+        return card_one
+    else:
+        return card_two
 
 
 def value_of_ace(card_one, card_two):
@@ -44,7 +54,13 @@ def value_of_ace(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if card_one is 'A' or card_two is 'A':
+        return 1
+    else:
+        if value_of_card(card_one) + value_of_card(card_two) <= 10:
+            return 11
+        else:
+            return 1
 
 
 def is_blackjack(card_one, card_two):
@@ -58,7 +74,16 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if card_one is 'A' or card_two is 'A':
+        if value_of_card(card_one) + value_of_card(card_two) == 11:
+            return True
+        else:
+            return False
+    else:
+        if value_of_card(card_one) + value_of_card(card_two) == 21:
+            return True
+        else:
+            return False
 
 
 def can_split_pairs(card_one, card_two):
@@ -68,7 +93,10 @@ def can_split_pairs(card_one, card_two):
     :return: bool - can the hand be split into two pairs? (i.e. cards are of the same value).
     """
 
-    pass
+    if value_of_card(card_one) == value_of_card(card_two):
+        return True
+    else:
+        return False
 
 
 def can_double_down(card_one, card_two):
@@ -78,4 +106,7 @@ def can_double_down(card_one, card_two):
     :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
 
-    pass
+    if value_of_card(card_one) + value_of_card(card_two) in [9, 10, 11]:
+        return True
+    else:
+        return False
