@@ -58,6 +58,6 @@ def clean_up(combined_record_group):
 
     result = ''
     for record in combined_record_group:
-        result += str(record[:1] + record[2:]) + "\n"
+        result += str(record[:1] + record[2:]) + '\n'
 
     return result
